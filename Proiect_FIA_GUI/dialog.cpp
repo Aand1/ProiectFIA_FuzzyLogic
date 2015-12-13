@@ -19,8 +19,16 @@ Dialog::Dialog(QWidget *parent) :
     serial = new QSerialPort(this);
 
     serial->setBaudRate(QSerialPort::Baud9600);
-    serial->setPortName(portAvailable);
+    serial->setPortName("ttyACM0");
     serial->open(QSerialPort::ReadOnly);
+    if(serial->isOpen())
+    {
+        qDebug() << "serial is open" << " on port: " << serial->portName();
+    }
+    else
+    {
+        qDebug() << "serial is NOT open";
+    }
 
     connect(serial,SIGNAL(readyRead()), this, SLOT(handlerRxSerial()));
 
