@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/pref1">
+        <file>imgs/fuzzy_logic.gif</file>
+    </qresource>
+</RCC>
